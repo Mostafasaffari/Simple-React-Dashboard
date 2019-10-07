@@ -1,2 +1,2 @@
 # Simple-React-Dashboard
-This is a simple dashboard with React, Mobx and Typescript
+This is a simple dashboard with React, Redux and Typescript
