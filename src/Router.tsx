@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import rtl from "jss-rtl";
 import { create } from "jss";
 import {
@@ -8,10 +8,11 @@ import {
 } from "@material-ui/core/styles";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import App from "./pages/app";
 import Login from "./pages/login";
 
 import theme from "./theme";
+
+const App = lazy(() => import("./pages/app"));
 
 const jss = create({
   plugins: [...jssPreset().plugins, rtl()]
@@ -26,11 +27,13 @@ const Router: React.FC = () => {
     <StylesProvider jss={jss}>
       <MuiThemeProvider theme={theme}>
         <BrowserRouter>
-          <Switch>
-            <Route exact path="/" component={App} />
-            <Route exact path="/login" component={Login} />
-            <Route component={() => <h1>404</h1>} />
-          </Switch>
+          <Suspense fallback={<div />}>
+            <Switch>
+              <Route exact path="/" component={App} />
+              <Route exact path="/login" component={Login} />
+              <Route component={() => <h1>404</h1>} />
+            </Switch>
+          </Suspense>
         </BrowserRouter>
       </MuiThemeProvider>
     </StylesProvider>
