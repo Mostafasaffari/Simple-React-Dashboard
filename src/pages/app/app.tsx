@@ -1,16 +1,17 @@
 import React from "react";
 import useStyle from "./app.style";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 // Material-UI
 import { Box, TextField, Typography } from "@material-ui/core";
 
 const App: React.FC = () => {
+  const { t } = useTranslation();
   const classes = useStyle();
-
   return (
     <div className={classes.wrapper}>
       <h1>Test app </h1>
-      <Link to="/login">got to login</Link>
+      <Link to="/login">{t("home:title")}</Link>
       <TextField variant="outlined" label="hi" />
       <Box textAlign="center" mt={10}>
         <Typography variant="h4">
