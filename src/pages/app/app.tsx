@@ -10,7 +10,7 @@ const App: React.FC = () => {
   return (
     <div className={classes.wrapper}>
       <h1>Test app </h1>
-      <Link to="/login">{t("welcome")}</Link>
+      <Link to="/login">{t("home:title")}</Link>
       <TextField variant="outlined" label="hi" />
     </div>
   );

@@ -32,6 +32,7 @@ i18next
       },
       fallbackLng: "fa",
       debug: true,
+      ns: ["public", "home"],
       defaultNS: "public"
     },
     (err, t) => {
