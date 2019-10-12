@@ -10,15 +10,16 @@ i18next
   .init(
     {
       backend: {
-        backends: [
-          LocalStorageBackend,
-          XHR
-        ],
+        backends: [LocalStorageBackend, XHR],
         backendOptions: [
           {
             prefix: "dashboard_",
-            expirationTime: 7 * 24 * 60 * 60 * 1000,
-            store: window.localStorage
+            //expirationTime: 7 * 24 * 60 * 60 * 1000,
+            store: window.localStorage,
+            versions: {
+              en: "1.0.0",
+              fa: "1.0.4"
+            }
           },
           {
             loadPath: "/locales/{{lng}}/{{ns}}.json"
