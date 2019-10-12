@@ -11,22 +11,17 @@ i18next
     {
       backend: {
         backends: [
-          LocalStorageBackend, // primary
-          XHR // fallback
+          LocalStorageBackend,
+          XHR
         ],
         backendOptions: [
           {
-            // prefix for stored languages
             prefix: "dashboard_",
-
-            // expiration
             expirationTime: 7 * 24 * 60 * 60 * 1000,
-
-            // can be either window.localStorage or window.sessionStorage. Default: window.localStorage
             store: window.localStorage
           },
           {
-            loadPath: "/locales/{{lng}}/{{ns}}.json" // xhr load path for my own fallback
+            loadPath: "/locales/{{lng}}/{{ns}}.json"
           }
         ]
       },
@@ -37,7 +32,7 @@ i18next
     },
     (err, t) => {
       if (err) return console.log("something went wrong loading", err);
-      t("key"); // -> same as i18next.t
+      t("key");
     }
   );
 
