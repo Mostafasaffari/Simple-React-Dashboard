@@ -32,7 +32,6 @@ i18next
     },
     (err, t) => {
       if (err) return console.log("something went wrong loading", err);
-      t("key");
     }
   );
 
