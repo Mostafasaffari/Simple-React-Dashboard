@@ -14,7 +14,7 @@ i18next
         backendOptions: [
           {
             prefix: "dashboard_",
-            //expirationTime: 7 * 24 * 60 * 60 * 1000,
+            expirationTime: 7 * 24 * 60 * 60 * 1000,
             store: window.localStorage,
             versions: {
               en: "1.0.0",
@@ -26,10 +26,10 @@ i18next
           }
         ]
       },
-      fallbackLng: "fa",
-      debug: true,
-      ns: ["public", "home"],
-      defaultNS: "public"
+      fallbackLng: false,
+      lng: "fa",
+      defaultNS: "public",
+      debug: true
     },
     (err, t) => {
       if (err) return console.log("something went wrong loading", err);
