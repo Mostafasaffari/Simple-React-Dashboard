@@ -1,31 +1,20 @@
 import React, { Suspense, lazy } from "react";
-import rtl from "jss-rtl";
-import { create } from "jss";
-import {
-  StylesProvider,
-  jssPreset,
-  MuiThemeProvider
-} from "@material-ui/core/styles";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-
+// Components
+import Direction from "./pages/theme/Direction";
 import Login from "./pages/login";
-
-import theme from "./theme";
+// Material-UI
+import theme from "./pages/theme";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import { MuiThemeProvider } from "@material-ui/core/styles";
 
 const App = lazy(() => import("./pages/app"));
 
-const jss = create({
-  plugins: [...jssPreset().plugins, rtl()]
-});
-
 const Router: React.FC = () => {
-  const body = document.querySelector("body");
-  if (body && theme && theme.direction) {
-    body.dir = theme.direction;
-  }
   return (
-    <StylesProvider jss={jss}>
-      <MuiThemeProvider theme={theme}>
+    <MuiThemeProvider theme={theme}>
+      <CssBaseline />
+      <Direction>
         <BrowserRouter>
           <Suspense fallback={<div />}>
             <Switch>
@@ -35,8 +24,8 @@ const Router: React.FC = () => {
             </Switch>
           </Suspense>
         </BrowserRouter>
-      </MuiThemeProvider>
-    </StylesProvider>
+      </Direction>
+    </MuiThemeProvider>
   );
 };
 
