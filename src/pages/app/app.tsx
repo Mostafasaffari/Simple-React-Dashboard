@@ -9,7 +9,7 @@ const App: React.FC = () => {
   const { t } = useTranslation("home");
   const classes = useStyle();
   return (
-    <div className={classes.wrapper}>
+    <div className={classes.wrapper} data-test="wrapper">
       <h1>Test app </h1>
       <Link to="/login">{t("title")}</Link>
       <TextField variant="outlined" label="hi" />
