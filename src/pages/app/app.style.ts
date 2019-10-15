@@ -1,12 +1,14 @@
 import { makeStyles } from "@material-ui/styles";
-import { Theme } from "@material-ui/core";
+import { Theme, createStyles } from "@material-ui/core";
 
-const style = makeStyles((theme: Theme) => {
-  return {
+
+const style = makeStyles((theme: Theme) =>
+  createStyles({
     wrapper: {
-      //backgroundColor: theme.palette.background.default
+      backgroundColor:
+        Object.keys(theme).length > 0 ? theme.palette.background.default : ""
     }
-  };
-});
+  })
+);
 
 export default style;
