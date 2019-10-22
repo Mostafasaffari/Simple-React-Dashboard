@@ -1,6 +1,6 @@
 import { createMuiTheme, responsiveFontSizes, Theme } from "@material-ui/core/styles";
 
-const direction = "rtl";
+const direction = "ltr";
 const theme: Theme = createMuiTheme({
   direction,
   overrides: {
