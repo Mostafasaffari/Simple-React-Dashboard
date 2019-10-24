@@ -1,4 +1,8 @@
-import { createMuiTheme, responsiveFontSizes, Theme } from "@material-ui/core/styles";
+import {
+  createMuiTheme,
+  responsiveFontSizes,
+  Theme
+} from "@material-ui/core/styles";
 
 const direction = "ltr";
 const theme: Theme = createMuiTheme({
@@ -9,6 +13,15 @@ const theme: Theme = createMuiTheme({
         body: {
           direction
         }
+      }
+    },
+    MuiButton: {
+      label: {
+        fontWeight: 800
+      },
+      root: {
+        color: "#ffffff",
+        background: "linear-gradient(107.24deg, #04f0c5 0%, #00dda2 99.85%)"
       }
     }
   },
