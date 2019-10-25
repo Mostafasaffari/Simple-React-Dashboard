@@ -1,13 +1,27 @@
 import React from "react";
+import { RouteComponentProps } from "react-router";
 
-import Typography from "../../component/ui-kit/typography";
+import Storage from "../../helpers/localStorage";
+
 import Input from "../../component/ui-kit/input";
 import Button from "../../component/ui-kit/button";
+import Typography from "../../component/ui-kit/typography";
 
 import useStyle from "./login.style";
 
-const Login = () => {
+interface IProps extends RouteComponentProps {}
+
+const Login: React.FC<IProps> = ({ history }) => {
   const classes = useStyle();
+
+  const handleLogin = () => {
+    Storage().set("token", "test--");
+    history.push("/dashboard");
+  };
+  if (Storage().get("token")) {
+    history.push("/dashboard");
+    return null; //TODO: implement Loading here
+  }
   return (
     <div className={classes.wrapper}>
       <div className={classes.header}>
@@ -21,7 +35,7 @@ const Login = () => {
           type="password"
           className="login-input"
         />
-        <Button variant="contained" color="primary">
+        <Button variant="contained" color="primary" onClick={handleLogin}>
           Login
         </Button>
       </div>
