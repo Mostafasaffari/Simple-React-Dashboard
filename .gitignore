@@ -1,0 +1,11 @@
+/node_modules
+/build
+/dist
+
+.vscode
+.env.local
+.env.development.local
+.DS_Store
+.idea
+
+/size-plugin.json

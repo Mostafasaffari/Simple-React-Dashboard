@@ -1,0 +1,29 @@
+{
+  "name": "simple-react-dashboard",
+  "version": "0.1.0",
+  "description": "This is a simple dashboard with React, Redux and Typescript",
+  "main": "index.tsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mostafasaffari/Simple-React-Dashboard.git"
+  },
+  "keywords": [
+    "React",
+    "Dashboard",
+    "Mobx",
+    "Hook",
+    "CRA",
+    "Jss",
+    "Material-ui",
+    "TypeScript"
+  ],
+  "author": "Mostafa Saffari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mostafasaffari/Simple-React-Dashboard/issues"
+  },
+  "homepage": "https://github.com/Mostafasaffari/Simple-React-Dashboard#readme"
+}
