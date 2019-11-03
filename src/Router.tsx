@@ -7,10 +7,10 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Direction from "./pages/theme/Direction";
 
 import store from "./redux/store";
-import theme from "./pages/theme";
+import theme from "./pages/theme/theme";
 
 const Login = lazy(() => import("./pages/login"));
-const App = lazy(() => import("./pages/app"));
+const App = lazy(() => import("./pages/app/App"));
 
 const Router: React.FC = () => {
   return (

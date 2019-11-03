@@ -5,7 +5,7 @@ import Storage from "../../helpers/localStorage";
 
 import Input from "../../component/ui-kit/input";
 import Button from "../../component/ui-kit/button";
-import Typography from "../../component/ui-kit/typography";
+import Typography from "../../component/ui-kit/typography/typography";
 
 import useStyle from "./login.style";
 
