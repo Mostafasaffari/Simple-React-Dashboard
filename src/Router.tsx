@@ -2,15 +2,17 @@ import React, { Suspense, lazy } from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { Provider } from "react-redux";
 import { MuiThemeProvider } from "@material-ui/core/styles";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import Direction from "./pages/theme/Direction";
 
 import store from "./redux/store";
 import theme from "./pages/theme/theme";
+import Storage from "./helpers/localStorage";
 
 const Login = lazy(() => import("./pages/login"));
 const App = lazy(() => import("./pages/app/App"));
+const DashboardRouter = lazy(() => import("./pages/dashboard"));
 
 const Router: React.FC = () => {
   return (
@@ -23,6 +25,10 @@ const Router: React.FC = () => {
               <Switch>
                 <Route exact path="/" component={App} />
                 <Route exact path="/login" component={Login} />
+                <RestrictedRoute
+                  path="/dashboard"
+                  component={DashboardRouter}
+                />
                 <Route component={() => <h1>404</h1>} />
               </Switch>
             </Suspense>
@@ -30,6 +36,36 @@ const Router: React.FC = () => {
         </Provider>
       </Direction>
     </MuiThemeProvider>
+  );
+};
+
+interface IPropsRestrictRoute {
+  component: React.FC<any>;
+  [rest: string]: any;
+}
+
+const RestrictedRoute: React.FC<IPropsRestrictRoute> = ({
+  component: Component,
+  ...rest
+}) => {
+  const isLoggedIn = !!Storage().get("token");
+
+  return (
+    <Route
+      {...rest}
+      render={props =>
+        isLoggedIn ? (
+          <Component {...props} />
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: { from: props.location }
+            }}
+          />
+        )
+      }
+    />
   );
 };
 

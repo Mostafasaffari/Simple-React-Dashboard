@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { RouteComponentProps } from "react-router";
 
 import Storage from "../../helpers/localStorage";
@@ -14,14 +14,16 @@ interface IProps extends RouteComponentProps {}
 const Login: React.FC<IProps> = ({ history }) => {
   const classes = useStyle();
 
+  useEffect(() => {
+    if (Storage().get("token")) {
+      history.push("/dashboard");
+    }
+  });
   const handleLogin = () => {
     Storage().set("token", "test--");
     history.push("/dashboard");
   };
-  if (Storage().get("token")) {
-    history.push("/dashboard");
-    return null; //TODO: implement Loading here
-  }
+
   return (
     <div className={classes.wrapper}>
       <div className={classes.header}>
