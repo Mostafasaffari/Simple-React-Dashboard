@@ -1,8 +1,20 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  RouteComponentProps,
+  Route
+} from "react-router-dom";
 
-const DashboardRouter = () => {
-  return <BrowserRouter></BrowserRouter>;
+interface IProps extends RouteComponentProps {}
+
+const DashboardRouter: React.FC<IProps> = ({ match }) => {
+  const { url } = match;
+
+  return (
+    <Router>
+      <Route component={() => <h1>hi</h1>} path={`${url}/`} exact />
+    </Router>
+  );
 };
 
 export default DashboardRouter;
