@@ -4,15 +4,19 @@ import {
   RouteComponentProps,
   Route
 } from "react-router-dom";
+import App from "./app/App";
 
 interface IProps extends RouteComponentProps {}
 
-const DashboardRouter: React.FC<IProps> = ({ match }) => {
-  const { url } = match;
-
+const DashboardRouter: React.FC<IProps> = ({ match: { url } }) => {
   return (
     <Router>
-      <Route component={() => <h1>hi</h1>} path={`${url}/`} exact />
+      <Route component={App} path={`${url}/`} exact />
+      <Route
+        component={() => <h1>this is test page Setting</h1>}
+        path={`${url}/setting`}
+        exact
+      />
     </Router>
   );
 };
