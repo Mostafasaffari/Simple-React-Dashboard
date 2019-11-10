@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
 import { RouteComponentProps } from "react-router";
+import { useDispatch } from "react-redux";
 
 import Storage from "../../helpers/localStorage";
+
+import userActions from "../../redux/user/actions";
 
 import Input from "../../component/ui-kit/input";
 import Button from "../../component/ui-kit/button";
@@ -13,6 +16,8 @@ interface IProps extends RouteComponentProps {}
 
 const Login: React.FC<IProps> = ({ history }) => {
   const classes = useStyle();
+  //const token: string = useSelector((state: AppState) => state.user.token);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (Storage().get("token")) {
@@ -20,7 +25,9 @@ const Login: React.FC<IProps> = ({ history }) => {
     }
   });
   const handleLogin = () => {
-    Storage().set("token", "test--");
+    const token = "test--";
+    Storage().set("token", token);
+    dispatch(userActions.setToken(token));
     history.push("/dashboard");
   };
 

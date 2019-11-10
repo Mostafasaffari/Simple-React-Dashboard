@@ -18,3 +18,5 @@ export interface IUserActions {
   setToken: (token: IUserState["token"]) => ISetTokenAction;
   deleteToken: () => IDeleteTokenAction;
 }
+
+export type UserActionTypes = ISetTokenAction | IDeleteTokenAction;
