@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { RouteComponentProps } from "react-router";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-import Storage from "../../helpers/localStorage";
 
+import { AppState } from "../../redux/store";
 import userActions from "../../redux/user/actions";
 
 import Input from "../../component/ui-kit/input";
@@ -16,17 +16,16 @@ interface IProps extends RouteComponentProps {}
 
 const Login: React.FC<IProps> = ({ history }) => {
   const classes = useStyle();
-  //const token: string = useSelector((state: AppState) => state.user.token);
+  const token: string = useSelector((state: AppState) => state.user.token);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (Storage().get("token")) {
+    if (token) {
       history.push("/dashboard");
     }
   });
   const handleLogin = () => {
     const token = "test--";
-    Storage().set("token", token);
     dispatch(userActions.setToken(token));
     history.push("/dashboard");
   };

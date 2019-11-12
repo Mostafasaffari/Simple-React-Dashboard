@@ -11,12 +11,14 @@ export const userReducer = (
 ): IUserState => {
   switch (action.type) {
     case SET_TOKEN:
+      Storage().set("token", action.token);
       return {
         ...state,
         token: action.token
       };
 
     case DELETE_TOKEN:
+      Storage().set("token", "");
       return {
         ...state,
         token: ""
