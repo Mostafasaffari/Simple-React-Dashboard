@@ -1,5 +1,5 @@
 import React from "react";
-import clsx from 'clsx';
+import clsx from "clsx";
 import { useSelector } from "react-redux";
 import { useTheme } from "@material-ui/core";
 import { Link, RouteComponentProps } from "react-router-dom";
@@ -28,7 +28,7 @@ import {
 
 import useStyles from "./app.style";
 
-interface IProps extends RouteComponentProps { }
+interface IProps extends RouteComponentProps {}
 
 const App: React.FC<IProps> = ({ match }) => {
   const [open, setOpen] = React.useState(false);
@@ -81,31 +81,29 @@ const App: React.FC<IProps> = ({ match }) => {
             {theme.direction === "ltr" ? (
               <ChevronLeftIcon />
             ) : (
-                <ChevronRightIcon />
-              )}
+              <ChevronRightIcon />
+            )}
           </IconButton>
         </div>
         <Divider />
         <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          <ListItem button key={"Dashboard"} component={Link} to={url}>
+            <ListItemIcon>
+              <InboxIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Dashboard"} />
+          </ListItem>
+          <ListItem
+            button
+            key={"Setting"}
+            component={Link}
+            to={`${url}/setting`}
+          >
+            <ListItemIcon>
+              <InboxIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Setting"} />
+          </ListItem>
         </List>
       </Drawer>
       <main
