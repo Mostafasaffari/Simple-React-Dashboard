@@ -32,6 +32,7 @@
     "@types/react-dom": "16.9.1",
     "@types/react-redux": "^7.1.5",
     "@types/react-router-dom": "^5.1.0",
+    "clsx": "^1.0.4",
     "i18next": "^17.2.0",
     "i18next-chained-backend": "^2.0.0",
     "i18next-localstorage-backend": "^3.0.0",
