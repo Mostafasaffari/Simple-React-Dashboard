@@ -1,5 +1,7 @@
 import React from "react";
+import clsx from 'clsx';
 import { useSelector } from "react-redux";
+import { useTheme } from "@material-ui/core";
 import { Link, RouteComponentProps } from "react-router-dom";
 
 import { AppState } from "../../../redux/store";
@@ -24,12 +26,24 @@ import {
   ListItemText
 } from "../../../component/ui-kit/list";
 
-interface IProps extends RouteComponentProps {}
+import useStyles from "./app.style";
+
+interface IProps extends RouteComponentProps { }
 
 const App: React.FC<IProps> = ({ match }) => {
-  const { url } = match;
+  const [open, setOpen] = React.useState(false);
   const token: string = useSelector((state: AppState) => state.user.token);
+  const classes = useStyles();
+  const theme = useTheme();
+  const { url } = match;
 
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
   return (
     <div>
       <AppBar
@@ -67,8 +81,8 @@ const App: React.FC<IProps> = ({ match }) => {
             {theme.direction === "ltr" ? (
               <ChevronLeftIcon />
             ) : (
-              <ChevronRightIcon />
-            )}
+                <ChevronRightIcon />
+              )}
           </IconButton>
         </div>
         <Divider />
