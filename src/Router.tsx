@@ -12,7 +12,7 @@ import Direction from "./pages/theme/Direction";
 
 const Login = lazy(() => import("./pages/login"));
 const App = lazy(() => import("./pages/app/App"));
-const DashboardRouter = lazy(() => import("./pages/dashboard"));
+const DashboardApp = lazy(() => import("./pages/dashboard/app"));
 
 const Router: React.FC = () => {
   return (
@@ -25,10 +25,7 @@ const Router: React.FC = () => {
               <Switch>
                 <Route exact path="/" component={App} />
                 <Route exact path="/login" component={Login} />
-                <RestrictedRoute
-                  path="/dashboard"
-                  component={DashboardRouter}
-                />
+                <RestrictedRoute path="/dashboard" component={DashboardApp} />
                 <Route component={() => <h1>404</h1>} />
               </Switch>
             </Suspense>
