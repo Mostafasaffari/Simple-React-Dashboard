@@ -12,7 +12,7 @@ const App: React.FC = () => {
     <div className={classes.wrapper} data-test="wrapper">
       <h1>Test app </h1>
       <Link to="/login">{t("title")}</Link>
-      <TextField variant="outlined" label="hi" />
+      {/* <TextField variant="outlined" label="hi" />
       <Box textAlign="center" mt={10}>
         <Typography variant="h4">
           This is responsive font size check it out
@@ -22,7 +22,7 @@ const App: React.FC = () => {
         <Typography variant="h3">Responsive h3</Typography>
         <Typography variant="h4">Responsive h4</Typography>
         <Typography variant="h5">Responsive h5</Typography>
-      </Box>
+      </Box> */}
     </div>
   );
 };
