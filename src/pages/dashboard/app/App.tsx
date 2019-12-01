@@ -1,10 +1,10 @@
 import React from "react";
 import clsx from "clsx";
-import { useSelector } from "react-redux";
+//import { useSelector } from "react-redux";
 import { useTheme } from "@material-ui/core";
 import { Link, RouteComponentProps } from "react-router-dom";
 
-import { AppState } from "../../../redux/store";
+//import { AppState } from "../../../redux/store";
 
 import Drawer from "../../../component/ui-kit/drawer";
 import AppBar from "../../../component/ui-kit/appBar";
@@ -14,7 +14,6 @@ import Typography from "../../../component/ui-kit/typography";
 import {
   IconButton,
   InboxIcon,
-  MailIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
   MenuIcon
@@ -27,12 +26,13 @@ import {
 } from "../../../component/ui-kit/list";
 
 import useStyles from "./app.style";
+import DashboardRouter from "../";
 
 interface IProps extends RouteComponentProps {}
 
 const App: React.FC<IProps> = ({ match }) => {
   const [open, setOpen] = React.useState(false);
-  const token: string = useSelector((state: AppState) => state.user.token);
+  //const token: string = useSelector((state: AppState) => state.user.token);
   const classes = useStyles();
   const theme = useTheme();
   const { url } = match;
@@ -112,35 +112,7 @@ const App: React.FC<IProps> = ({ match }) => {
         })}
       >
         <div className={classes.drawerHeader} />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-          dolor purus non enim praesent elementum facilisis leo vel. Risus at
-          ultrices mi tempus imperdiet. Semper risus in hendrerit gravida rutrum
-          quisque non tellus. Convallis convallis tellus id interdum velit
-          laoreet id donec ultrices. Odio morbi quis commodo odio aenean sed
-          adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies
-          integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate
-          eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo
-          quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat
-          vivamus at augue. At augue eget arcu dictum varius duis at consectetur
-          lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa sapien
-          faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
-          ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar
-          elementum integer enim neque volutpat ac tincidunt. Ornare suspendisse
-          sed nisi lacus sed viverra tellus. Purus sit amet volutpat consequat
-          mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis
-          risus sed vulputate odio. Morbi tincidunt ornare massa eget egestas
-          purus viverra accumsan in. In hendrerit gravida rutrum quisque non
-          tellus orci ac. Pellentesque nec nam aliquam sem et tortor. Habitant
-          morbi tristique senectus et. Adipiscing elit duis tristique
-          sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-          eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-          posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography>
+        <DashboardRouter url={url} />
       </main>
     </div>
   );
