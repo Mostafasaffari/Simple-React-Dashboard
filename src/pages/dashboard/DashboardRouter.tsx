@@ -1,23 +1,23 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  RouteComponentProps,
-  Route
-} from "react-router-dom";
-import App from "./app/App";
+import { Route, Switch } from "react-router-dom";
 
-interface IProps extends RouteComponentProps {}
+import Home from "./home/Home";
 
-const DashboardRouter: React.FC<IProps> = ({ match: { url } }) => {
+interface IProps {
+  url: string;
+}
+
+const DashboardRouter: React.FC<IProps> = ({ url }) => {
   return (
-    <Router>
-      <Route component={App} path={`${url}/`} exact />
+    <Switch>
+      <Route component={Home} path={`${url}/`} exact />
       <Route
-        component={() => <h1>this is test page Setting</h1>}
+        component={() => <h1>this is test page Setting of test</h1>}
         path={`${url}/setting`}
         exact
       />
-    </Router>
+      <Route component={() => <h1>404</h1>} />
+    </Switch>
   );
 };
 
