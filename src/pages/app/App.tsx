@@ -3,7 +3,7 @@ import useStyle from "./app.style";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 // Material-UI
-import { Box, TextField, Typography } from "@material-ui/core";
+//import { Box, TextField, Typography } from "@material-ui/core";
 
 const App: React.FC = () => {
   const { t } = useTranslation("home");
