@@ -45,7 +45,7 @@ const App: React.FC<IProps> = ({ match }) => {
     setOpen(false);
   };
   return (
-    <div>
+    <div style={{ display: "flex" }}>
       <AppBar
         position="fixed"
         className={clsx(classes.appBar, {
